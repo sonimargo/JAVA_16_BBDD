@@ -46,7 +46,7 @@ public class Main
 		System.out.println("Aves  ..... " + aveFind.toJson());
 		System.out.println("Aves  ..... " + aveFind.toString());
 		
-		Document aveFind1 = coleccionBird.find( { nombre: "Cuervo" });
+		//Document aveFind1 = coleccionBird.find( { nombre: "Cuervo" });
 		
 		
 		//Objetos que necesito en todo el programa
