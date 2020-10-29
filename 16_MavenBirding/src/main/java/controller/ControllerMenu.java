@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.bson.Document;
@@ -40,7 +41,7 @@ public class ControllerMenu
 		else
 			Utilidades.imprimirTexto("El ave introducida ya existe en BD.....\n");
 	}
-	
+		
 	public static void addObservacion(Scanner scanner, DataBaseListaBirds listaBirdDB)
 	{
 		String nombreAve = Utilidades.askNombre(scanner);
@@ -100,6 +101,14 @@ public class ControllerMenu
 		else
 			Utilidades.imprimirTexto("NO Existe ave ");
 	}
+	
+
+////////////////////////////////////////////////
+/// base datos
+	//Introducir datos de la ave 
+
+	
+//////////////////////////////////////////////	
 	
 	
 	// Metodos static del controller
