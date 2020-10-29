@@ -20,7 +20,9 @@ public class Autor {
 
 	@Override
 	public String toString() {
-				return "Author [name=" + name + ", surname=" + surname + ", age=" + age + ", book=" + books + "]";
+				return "Author [name=" + name + ", surname=" + surname + ", age=" + age 
+					 + "  Libros=" 
+					 + books + "]";
 	}
 
 	public String getName() {

@@ -18,7 +18,9 @@ public class Book
 		
 		@Override
 		public String toString() {
-			return "Book [title=" + title + ", year=" + year + ", pages=" + pages + "]";
+			return "Book [title=" + title + 
+					     "year=" + year + 
+					     "pages=" + pages + "]";
 		}
 
 		public String getTitle() {

@@ -5,4 +5,15 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>16_MavenDAO</name>
   <description>Base de Datos</description>
+  
+<dependencies>  
+  <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongo-java-driver</artifactId>
+    <version>3.12.7</version>
+</dependency>
+  
+</dependencies>    
+  
 </project>
