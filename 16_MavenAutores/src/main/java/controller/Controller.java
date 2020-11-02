@@ -8,8 +8,9 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 
 import dao.AutorDAO;
-import model.Book;
 import model.Autor;
+import model.Book;
+
 
 public class Controller 
 {
@@ -42,12 +43,20 @@ public class Controller
 	public static AutorDAO setSource(MongoDatabase database) {
 
 		AutorDAO authorDAO = new AutorDAO();
-		authorDAO.setDataSource(database);
+		authorDAO.setDataSource(database); // Fuente de datos (DataSource) será la coleccion(tabla) Autores
 		
 		return authorDAO;
 
 	}
 
+
+
+	//Impresion de todos lo documentos de la coleccion 
+	public static void imprimirTodosAutores(AutorDAO autorDAO)
+	{
+		autorDAO.impresionTodoslosAutores();
+	}
+	
 	//añadir autorDAO a la colecccion de autores
 	public static void add(AutorDAO autorDAO)
 	{
@@ -68,13 +77,6 @@ public class Controller
 		List<Book> listaBooks3 = new ArrayList<Book>();
 		listaBooks3.add(new Book("La Sombra del viento", 2019, 300));
 		Autor autor3 = new Autor("Carlos", "Ruiz", 50 , listaBooks3);
-		autorDAO.guardarAutor(autor3);		
-		
-	}
-
-	//Impresion de todos lo documentos de la coleccion 
-	public static void imprimirTodosAutores(AutorDAO autorDAO)
-	{
-		autorDAO.impresionTodoslosAutores();
-	}
+		autorDAO.guardarAutor(autor3);				
+	}	
 }

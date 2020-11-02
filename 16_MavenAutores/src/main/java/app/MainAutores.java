@@ -5,7 +5,7 @@ import com.mongodb.client.MongoDatabase;
 import controller.Controller;
 import dao.AutorDAO; 
 
-public class Main {
+public class MainAutores {
 
 	public static void main(String[] args) 
 	{
@@ -15,7 +15,7 @@ public class Main {
 		//Crear objeto DAO para manejo de datos de la coleccion Autores
 		AutorDAO autorDAO = Controller.setSource(database);	
 		
-		//añadir autorDAO a la colecccion de autores
+		//añadir autorDAO a la colecccion de autores. 2/10/2020: tengo autores en mongoDB 
 		//Controller.add(autorDAO);
 
 		//Impresion de todos lo documentos de la coleccion 

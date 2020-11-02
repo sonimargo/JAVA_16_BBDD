@@ -14,8 +14,8 @@ import org.bson.types.ObjectId;
 import com.mongodb.client.MongoCollection;
 
 
-public class AutorDAO {
-
+public class AutorDAO 
+{
 	private MongoDatabase database;
 	private String coleccionAutoresBD = "Autores";
 	
@@ -24,7 +24,7 @@ public class AutorDAO {
 		// TODO Auto-generated constructor stub
 	}
 
-
+	
 	public void setDataSource(MongoDatabase database) 
 	{
 		this.database = database;
