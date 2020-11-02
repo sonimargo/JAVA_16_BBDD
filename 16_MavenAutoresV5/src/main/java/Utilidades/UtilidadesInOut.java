@@ -13,7 +13,7 @@ public class UtilidadesInOut
 	
 	public static String askOpcion(Scanner scanner)
 	{
-		imprimirTexto("Nombre de ave: ");
+		imprimirTexto("Elige opción: ");
 		return scanner.nextLine();
 	}
 	

@@ -59,11 +59,12 @@ public class Controller
 
 	public static void addAutor(Scanner scanner)
 	{
+		System.out.println("paso 2");
 		//Solicitar datos al usuario para añadir el autor
 		String nombreAutor = UtilidadesInOut.askNombreAutor(scanner);
 		String apellidoAutor = UtilidadesInOut.askApellidoAutor(scanner);
 		int edadAutor = UtilidadesInOut.askEdadAutor(scanner);
-		
+		System.out.println("paso 3");
 		//Crear lista de libros, por que puede que se introduzca mas de un libro 
 		List<Book> nuevaListaLibros = new ArrayList<Book>();
 		

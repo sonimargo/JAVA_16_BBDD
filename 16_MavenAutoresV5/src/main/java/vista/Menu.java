@@ -37,34 +37,44 @@ public class Menu
 			imprimirMenu.mostrarMenuAutores();
 			String opcionPantalla = UtilidadesInOut.askOpcion(scannerPantalla);
 			
-			if (opcionPantalla.equals(MenuOpciones.SALIR))
+			MenuOpciones menuOpcionEnum = MenuOpciones.opcionsEsValida(opcionPantalla);
+			
+			if (menuOpcionEnum.equals(MenuOpciones.SALIR))
 			{
 				//Controller.close(database);
 				break;
 			}
-			if (opcionPantalla.equals(MenuOpciones.INDEFINIDO))
+			if (menuOpcionEnum.equals(MenuOpciones.INDEFINIDO))
 			{
 				UtilidadesInOut.opcionIndefinida(scannerPantalla);
 			}
 			
-			if (opcionPantalla.equals(MenuOpciones.ANADIR))
+			if (menuOpcionEnum.equals(MenuOpciones.ANADIR))
 			{
 				Controller.addAutor(scannerPantalla);
 			}
 			
-			/*
-			 * ANADIR(1,"1 - Añadir un autor, escribe ANADIR"),
-			 * VER(2,"2 - Ver todos los autores, escribe VER"),
-			 * MODIFICAR(3,"3 - Modificar un autor, escribe MODIFICAR"),
-			 * ELIMINAR(4,"4 - Eliminar un autor, escribe ELIMINAR"),
-			 * BUSCAR(5,"5 - Buscar un autor, escribe BUSCAR"),
-			 * AÑADIRLIBRO(6,"6 - Añadir un libro a un autor, escribe ADD"),
-			 */
+			if (menuOpcionEnum.equals(MenuOpciones.VER))
+			{
+				
+			}
 			
-			
-			
+			if (menuOpcionEnum.equals(MenuOpciones.MODIFICAR))
+			{
+				
+			}
+			if (menuOpcionEnum.equals(MenuOpciones.ELIMINAR))
+			{
+				
+			}
+			if (menuOpcionEnum.equals(MenuOpciones.BUSCAR))
+			{
+				
+			}
+			if (menuOpcionEnum.equals(MenuOpciones.AÑADIRLIBRO))
+			{
+				
+			}
 		}
-		
-		
 	}
 }
