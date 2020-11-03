@@ -56,12 +56,12 @@ public class Menu
 			
 			if (menuOpcionEnum.equals(MenuOpciones.VER))
 			{
-				
+				Controller.imprimirTodosAutores();
 			}
 			
 			if (menuOpcionEnum.equals(MenuOpciones.MODIFICAR))
 			{
-				
+				Controller.modificarUnAutor(scannerPantalla);
 			}
 			if (menuOpcionEnum.equals(MenuOpciones.ELIMINAR))
 			{

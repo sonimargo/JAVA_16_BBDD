@@ -2,6 +2,11 @@ package Utilidades;
 
 import java.util.Scanner;
 
+import org.bson.Document;
+
+import dao.AutorDAO;
+
+
 public class UtilidadesInOut 
 {
 
@@ -78,5 +83,26 @@ public class UtilidadesInOut
 	public static void imprimeFinDeSesion()
 	{
 		imprimirTexto("Fin de sesion.... ");
+	}
+	
+	
+	
+	
+	
+	public static void imprimirResultadoUpdate(Document updateResultat, AutorDAO autorDAO, String autorNomBuscar) 
+	{
+		if (updateResultat != null) {
+			imprimirTexto("Update correcto: " + updateResultat);
+			
+			imprimirTexto("Updated para: ");
+			Document autorEncontrado = autorDAO.existeAutor(autorNomBuscar);
+
+			if (autorEncontrado != null)
+				imprimirTexto(autorEncontrado.toJson());
+			else
+				imprimirTexto("archivo no encontrado: autor encontrado, perdido");
+
+		} else
+			imprimirTexto("archivo no encontrado");
 	}
 }

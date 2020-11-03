@@ -8,6 +8,8 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 
+import org.bson.Document;
+
 import Utilidades.UtilidadesInOut;
 import dao.AutorDAO;
 import model.Autor;
@@ -56,15 +58,13 @@ public class Controller
 
 	}
 
-
 	public static void addAutor(Scanner scanner)
 	{
-		System.out.println("paso 2");
 		//Solicitar datos al usuario para añadir el autor
 		String nombreAutor = UtilidadesInOut.askNombreAutor(scanner);
 		String apellidoAutor = UtilidadesInOut.askApellidoAutor(scanner);
 		int edadAutor = UtilidadesInOut.askEdadAutor(scanner);
-		System.out.println("paso 3");
+
 		//Crear lista de libros, por que puede que se introduzca mas de un libro 
 		List<Book> nuevaListaLibros = new ArrayList<Book>();
 		
@@ -72,7 +72,6 @@ public class Controller
 
 		autorDAO.guardarAutor(nuevoAutor);
 	}
-
 	
 	public static List<Book> addLibros(Scanner scanner, List<Book> nuevaListaLibros)
 	{
@@ -97,14 +96,83 @@ public class Controller
 		return nuevaListaLibros;
 	}
 	
-	
-	
 	//Impresion de todos lo documentos de la coleccion 
-	public static void imprimirTodosAutores(AutorDAO autorDAO)
+	public static void imprimirTodosAutores()
 	{
 		autorDAO.impresionTodoslosAutores();
 	}
 	
+	public static void modificarUnAutor(Scanner scanner)
+	{
+		//Solicitar nombre autor a modificar
+		String nombreAutorModificar = UtilidadesInOut.askNombreAutor(scanner);
+
+		//Si no existe autor, el retorno de buscarAutor será null
+		if (buscarPorNombreAutor(nombreAutorModificar) != null)
+		{
+			//Solicitar datos al usuario para añadir el autor
+			String nombreAutor = UtilidadesInOut.askNombreAutor(scanner);
+			String apellidoAutor = UtilidadesInOut.askApellidoAutor(scanner);
+			int edadAutor = UtilidadesInOut.askEdadAutor(scanner);
+
+			//Modificar nombre, apellido y edad
+			if (!nombreAutor.isEmpty() && !apellidoAutor.isEmpty() && edadAutor > 0 )
+			{
+				autorDAO.modificarAutor(nombreAutorModificar, nombreAutor, apellidoAutor, edadAutor);
+			}
+			//Modificar nombre, apellido
+			else if (!nombreAutor.isEmpty() && !apellidoAutor.isEmpty() && edadAutor < 0 )
+			{
+				autorDAO.modificarAutor(nombreAutorModificar, nombreAutor, apellidoAutor);
+			}
+			//Modificar nombre, edad
+			else if (!nombreAutor.isEmpty() && apellidoAutor.isEmpty() && edadAutor > 0 )
+			{
+				autorDAO.modificarAutor(nombreAutorModificar, nombreAutor, edadAutor);
+			}			
+			//Modificar apellido edad
+			else if (nombreAutor.isEmpty() && !apellidoAutor.isEmpty() && edadAutor > 0 )
+			{
+				autorDAO.modificarAutorApellido(nombreAutorModificar, apellidoAutor);
+				autorDAO.modificarAutorEdad(nombreAutorModificar, edadAutor);
+			}				
+			//Modificar nombre
+			else if (!nombreAutor.isEmpty() && apellidoAutor.isEmpty() && edadAutor < 0 )
+			{
+				autorDAO.modificarAutorNombre(nombreAutorModificar, nombreAutor);;
+			}	
+			//Modificar apellido
+			else if (nombreAutor.isEmpty() && !apellidoAutor.isEmpty() && edadAutor < 0 )
+			{
+				autorDAO.modificarAutorApellido(nombreAutorModificar, apellidoAutor);
+			}			
+			//Modificar edad
+			else if (nombreAutor.isEmpty() && apellidoAutor.isEmpty() && edadAutor > 0 )
+			{
+				autorDAO.modificarAutorEdad(nombreAutorModificar, edadAutor);
+			}
+		}
+		else
+			UtilidadesInOut.imprimirTexto("No existe registro");
+		
+
+	}
+	
+	public static Document buscarPorNombreAutor(String nombreAutorABusar)
+	{
+		//buscar si existe en la BD
+		Document autorEncontrado = autorDAO.existeAutor(nombreAutorABusar);
+		
+		if (autorEncontrado != null)
+			 return autorEncontrado;
+		else
+			return null;
+	}
+	
+	
+	
+	
+////////////////////////////////////////////////////////////
 	//añadir autorDAO a la colecccion de autores
 	public static void add(AutorDAO autorDAO)
 	{
