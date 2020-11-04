@@ -9,8 +9,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AUTHOR")
-@NamedQueries({ @NamedQuery(name = "Author.findByName", query = "SELECT a FROM Author a WHERE a.name = :name") })
+@Table(name = "AUTOR")
+@NamedQueries({ @NamedQuery(name = "Autor.findByName", query = "SELECT a FROM Author a WHERE a.name = :name") })
 public class Author {
 	@Id
 	@GeneratedValue

@@ -7,7 +7,7 @@
 
   
   
-    <name>JPAHibernateToH2</name>
+    <name>16_JPAtoH2v1</name>
     <description>Primer contacto con H2</description>    
     
     <url>http://maven.apache.org</url>

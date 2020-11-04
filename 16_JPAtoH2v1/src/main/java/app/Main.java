@@ -5,16 +5,22 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import model.Author;
 import repository.AuthorRepository;
-import java.util.List;
+
 import java.util.Optional;
 
 
-public class Main {
-    public static void main(String[] args) {
+public class Main 
+{
+    public static void main(String[] args) 
+    {
         // Create our entity manager
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("library");
+    	System.out.println(System.getProperty("java.classpath"));
+    	System.out.println("num 1");
+    	
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Libreria");
+        System.out.println("num 2");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        
+        System.out.println("num 3");
         // Create our repositories
         AuthorRepository authorRepository = new AuthorRepository(entityManager);
         // Create an author
@@ -28,7 +34,7 @@ public class Main {
         Optional<Author> savedAuthor3 = authorRepository.save(victor);
         Optional<Author> savedAuthor4 = authorRepository.save(dante);
         
-        System.out.println("Saved author: " + savedAuthor1.get());
+   //     System.out.println("Saved author: " + savedAuthor1.get());
         // Find all authors
 //        List<Author> authors = authorRepository.findAll();
         System.out.println("Authors:");
