@@ -14,6 +14,7 @@ import model.Book;
 import repository.AuthorRepository;
 import repository.BookRepository;
 import utilidades.Utilidades;
+import view.Menu;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +37,9 @@ public class MainJPA
 		buscarAutor(authorRepository, bookRepository);
 		eliminarAutor(authorRepository, bookRepository);
 		
+		System.out.println("paso 1");
+		ControllerMenu.addAutor(authorRepository, bookRepository);
+		System.out.println("paso 2");
 		
 		// Close the entity manager and associated factory
 		entityManager.close();
@@ -155,18 +159,23 @@ public class MainJPA
 		Author autor1 = new Author("Isabel Allende", "España");
 		autor1.addBook(new Book("La casa de los espiritus"));
 		autor1.addBook(new Book("Hija de la fortuna"));		
+		
+		System.out.println("elimina 1");
+		
 		Optional<Author> savedAuthor1 = authorRepository.save(autor1);
 		System.out.println(autor1);
+		
+		System.out.println("elimina  2");
 		
 		Optional<Author> authorByName = authorRepository.findByName("Isabel Allende");
 		// Find author by name and delete it, that is Isabel Allende
 		authorByName = authorRepository.deleteByName("Isabel Allende");
 		
-		System.out.println("1");
+		System.out.println("elimina  3");
 		
 		authorByName.ifPresent(System.out::println);
 		
-		System.out.println("3");
+		System.out.println("elimina  4");
 	}
 	
 }

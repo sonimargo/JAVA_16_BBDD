@@ -134,10 +134,29 @@ public class Utilidades
 		return nombreAutor;
 	}
 	
+	public static String askPais(Scanner scanner)
+	{
+		System.out.println("Pais de autor ");
+		String paisAutor = scanner.nextLine();
+		return paisAutor;
+	}
+	
 	public static String askTituloLibro(Scanner scanner)
 	{
 		System.out.println("Titulo del libro ");
 		String tituloLibro = scanner.nextLine();
 		return tituloLibro;
 	}	
+	
+	public static String askOpcion(Scanner scanner)
+	{
+		System.out.println("Elige opción: ");
+		return scanner.nextLine();
+	}
+	
+	
+	public static void opcionIndefinida(Scanner scanner)
+	{
+		System.out.println("Esta opción no es correcta ");
+	}
 }
