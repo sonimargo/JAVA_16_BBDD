@@ -117,18 +117,24 @@ public class AuthorRepository
 	public boolean existeAutor(Author author)
 	{
 		System.out.println("existe autor 1. id:" + author.getId() + ".... hay id....");
-		Optional<Author> existeAutor = this.findById(author.getId());
-		System.out.println("existe autor 2");
-		if (existeAutor != null)
+		
+		if (author.getId() == null)
 		{
-			System.out.println("existe autor 3");
-			return true;
+			Optional<Author> existeAutor = this.findById(author.getId());
+			System.out.println("existe autor 2");
+			if (existeAutor != null)
+			{
+				System.out.println("existe autor 3");
+				return true;
+			}
+			else
+			{
+				System.out.println("existe autor 4");		
+				return false;
+			}
 		}
 		else
-		{
-			System.out.println("existe autor 4");		
 			return false;
-		}
 	}
 	
 
